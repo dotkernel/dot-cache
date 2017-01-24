@@ -45,6 +45,18 @@ class StorageCacheAbstractServiceFactory extends \Zend\Cache\Service\StorageCach
 
     /**
      * @param ContainerInterface $container
+     * @param string $requestedName
+     * @param array|null $options
+     * @return object
+     */
+    public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
+    {
+        $parts = explode('.', $requestedName);
+        return parent::__invoke($container, $parts[1], $options);
+    }
+
+    /**
+     * @param ContainerInterface $container
      * @return array
      */
     protected function getConfig(ContainerInterface $container)
