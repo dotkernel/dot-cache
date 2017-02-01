@@ -7,7 +7,7 @@
  * Time: 3:59 AM
  */
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace Dot\Cache\Factory;
 

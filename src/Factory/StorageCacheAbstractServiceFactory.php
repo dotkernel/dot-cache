@@ -7,7 +7,7 @@
  * Time: 3:20 AM
  */
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace Dot\Cache\Factory;
 
@@ -21,10 +21,10 @@ class StorageCacheAbstractServiceFactory extends \Zend\Cache\Service\StorageCach
 {
     const PREFIX = 'dot-cache';
 
-    /** @var string  */
+    /** @var string */
     protected $configKey = 'dot_cache';
 
-    /** @var string  */
+    /** @var string */
     protected $subConfigKey = 'caches';
 
     /**
@@ -61,7 +61,7 @@ class StorageCacheAbstractServiceFactory extends \Zend\Cache\Service\StorageCach
      * @param ContainerInterface $container
      * @return array
      */
-    protected function getConfig(ContainerInterface $container) : array
+    protected function getConfig(ContainerInterface $container): array
     {
         parent::getConfig($container);
 
