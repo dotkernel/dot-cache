@@ -7,6 +7,8 @@
  * Time: 3:20 AM
  */
 
+declare(strict_types=1);
+
 namespace Dot\Cache\Factory;
 
 use Interop\Container\ContainerInterface;
@@ -59,7 +61,7 @@ class StorageCacheAbstractServiceFactory extends \Zend\Cache\Service\StorageCach
      * @param ContainerInterface $container
      * @return array
      */
-    protected function getConfig(ContainerInterface $container)
+    protected function getConfig(ContainerInterface $container) : array
     {
         parent::getConfig($container);
 

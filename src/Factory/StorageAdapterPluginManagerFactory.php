@@ -7,6 +7,8 @@
  * Time: 4:00 AM
  */
 
+declare(strict_types=1);
+
 namespace Dot\Cache\Factory;
 
 use Interop\Container\ContainerInterface;

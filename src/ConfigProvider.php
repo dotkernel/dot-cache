@@ -7,6 +7,8 @@
  * Time: 3:09 AM
  */
 
+declare(strict_types=1);
+
 namespace Dot\Cache;
 
 use Dot\Cache\Factory\PatternPluginManagerFactory;
@@ -23,7 +25,7 @@ use Zend\Cache\Storage\PluginManager;
  */
 class ConfigProvider
 {
-    public function __invoke()
+    public function __invoke() : array
     {
         return [
             'dependencies' => $this->getDependenciesConfig(),
@@ -41,7 +43,7 @@ class ConfigProvider
         ];
     }
 
-    public function getDependenciesConfig()
+    public function getDependenciesConfig() : array
     {
         return [
             'abstract_factories' => [
