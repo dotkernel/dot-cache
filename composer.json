@@ -1,6 +1,6 @@
 {
   "name": "dotkernel/dot-cache",
-  "description": "DotKernel cache component based on zend-cache",
+  "description": "DotKernel cache component extending zend-cache",
   "authors": [
     {
       "name": "n3vrax",
@@ -34,7 +34,7 @@
   },
   "extra": {
     "branch-alias": {
-      "dev-master": "0.6-dev"
+      "dev-master": "1.1-dev"
     }
   }
 }
