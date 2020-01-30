@@ -13,9 +13,9 @@ use Dot\Cache\Factory\PatternPluginManagerFactory;
 use Dot\Cache\Factory\StorageAdapterPluginManagerFactory;
 use Dot\Cache\Factory\StorageCacheAbstractServiceFactory;
 use Dot\Cache\Factory\StoragePluginManagerFactory;
-use Zend\Cache\PatternPluginManager;
-use Zend\Cache\Storage\AdapterPluginManager;
-use Zend\Cache\Storage\PluginManager;
+use Laminas\Cache\PatternPluginManager;
+use Laminas\Cache\Storage\AdapterPluginManager;
+use Laminas\Cache\Storage\PluginManager;
 
 /**
  * Class ConfigProvider

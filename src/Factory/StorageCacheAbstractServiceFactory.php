@@ -15,7 +15,7 @@ use Interop\Container\ContainerInterface;
  * Class StorageCacheAbstractServiceFactory
  * @package Dot\Cache\Factory
  */
-class StorageCacheAbstractServiceFactory extends \Zend\Cache\Service\StorageCacheAbstractServiceFactory
+class StorageCacheAbstractServiceFactory extends \Laminas\Cache\Service\StorageCacheAbstractServiceFactory
 {
     const PREFIX = 'dot-cache';
 

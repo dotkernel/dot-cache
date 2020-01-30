@@ -10,7 +10,7 @@ declare(strict_types = 1);
 namespace Dot\Cache\Factory;
 
 use Psr\Container\ContainerInterface;
-use Zend\Cache\Storage\PluginManager;
+use Laminas\Cache\Storage\PluginManager;
 
 /**
  * Class StoragePluginManagerFactory
