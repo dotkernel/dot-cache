@@ -9,3 +9,6 @@ DotKernel cache component based on laminas-cache, extending and customizing it
 [![GitHub forks](https://img.shields.io/github/forks/dotkernel/dot-cache)](https://github.com/dotkernel/dot-cache/network)
 [![GitHub stars](https://img.shields.io/github/stars/dotkernel/dot-cache)](https://github.com/dotkernel/dot-cache/stargazers)
 [![GitHub license](https://img.shields.io/github/license/dotkernel/dot-cache)](https://github.com/dotkernel/dot-cache/blob/3.0.0/LICENSE.md)
+
+## **Note**
+**dot-cache** is **abandoned** and will receive no further development.
