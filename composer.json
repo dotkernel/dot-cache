@@ -24,6 +24,9 @@
         "phpunit/phpunit": "^9.5",
         "squizlabs/php_codesniffer": "^3.6"
     },
+    "suggest": {
+        "phpfastcache/phpfastcache": "Cache library providing a large variety of drivers."
+    },
     "autoload": {
         "psr-4": {
             "Dot\\Cache\\": "src"
