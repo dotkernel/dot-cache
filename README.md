@@ -3,12 +3,12 @@
 DotKernel cache component based on symfony-cache.
 
 ![OSS Lifecycle](https://img.shields.io/osslifecycle/dotkernel/dot-cache)
-![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-cache/3.1.3)
+![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-cache/4.0)
 
 [![GitHub issues](https://img.shields.io/github/issues/dotkernel/dot-cache)](https://github.com/dotkernel/dot-cache/issues)
 [![GitHub forks](https://img.shields.io/github/forks/dotkernel/dot-cache)](https://github.com/dotkernel/dot-cache/network)
 [![GitHub stars](https://img.shields.io/github/stars/dotkernel/dot-cache)](https://github.com/dotkernel/dot-cache/stargazers)
-[![GitHub license](https://img.shields.io/github/license/dotkernel/dot-cache)](https://github.com/dotkernel/dot-cache/blob/3.0.0/LICENSE.md)
+[![GitHub license](https://img.shields.io/github/license/dotkernel/dot-cache)](https://github.com/dotkernel/dot-cache/blob/4.0.0/LICENSE.md)
 
 [![Build Static](https://github.com/dotkernel/dot-cache/actions/workflows/static-analysis.yml/badge.svg?branch=4.0)](https://github.com/dotkernel/dot-cache/actions/workflows/static-analysis.yml)
 [![codecov](https://codecov.io/gh/dotkernel/dot-cache/graph/badge.svg?token=ZBZDEA3LY8)](https://codecov.io/gh/dotkernel/dot-cache)
