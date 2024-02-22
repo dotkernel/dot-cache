@@ -1,3 +1,21 @@
+## 4.0.0 - 2024-02-22
+
+### Changed
+* removed support for PHP 8.1
+* removed support for laminas/laminas-cache
+
+### Added
+* added support for PHP 8.3
+
+### Deprecated
+* laminas/laminas-cache
+
+### Removed
+* Nothing
+
+### Fixed
+* Nothing
+
 ## 1.1.1 - 2018-05-03
 
 ### Changed
