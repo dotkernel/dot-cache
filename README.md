@@ -11,7 +11,8 @@ DotKernel cache component based on symfony-cache.
 [![GitHub license](https://img.shields.io/github/license/dotkernel/dot-cache)](https://github.com/dotkernel/dot-cache/blob/4.0.0/LICENSE.md)
 
 [![Build Static](https://github.com/dotkernel/dot-cache/actions/workflows/static-analysis.yml/badge.svg?branch=4.0)](https://github.com/dotkernel/dot-cache/actions/workflows/static-analysis.yml)
-[![codecov](https://codecov.io/gh/dotkernel/dot-cache/graph/badge.svg?token=ZBZDEA3LY8)](https://codecov.io/gh/dotkernel/dot-cache)
+[![codecov](https://codecov.io/gh/dotkernel/dot-cache/graph/badge.svg?token=FAN1MXKKS9)](https://codecov.io/gh/dotkernel/dot-cache)
+
 [![SymfonyInsight](https://insight.symfony.com/projects/787c7526-eb9d-4fa2-a8d4-bfdcc008d239/big.svg)](https://insight.symfony.com/projects/787c7526-eb9d-4fa2-a8d4-bfdcc008d239)
 
 ### Note
