@@ -29,7 +29,7 @@ Run the following command in your project directory
 After installing, add the `Dot\Cache\ConfigProvider::class` class to your configuration aggregate.
 
 
-## Configuration 
+## Configuration for Doctrine in_array
 
 In ```config\autoload\doctrine.global.php``` you need to add the following configurations:
 
@@ -66,6 +66,8 @@ Next, under the ```doctrine``` key add the following config:
 
 If you want to store the cache into files on your local disk you will need to use the `filesystem` adapter.
 
+## CONFIGURATION FOR Doctrine cache using filesystem
+
 **The `filesystem` adapter needs some extra configurations :**
 * directory (folder path)
 * namespace (directory name)
@@ -78,7 +80,7 @@ If you want to store the cache into files on your local disk you will need to us
     'filesystem' => [
         'class'     => \Frontend\App\Common\FilesystemAdapter::class,
         'directory' => getcwd() . '/data/cache',
-        'namespace' => 'test',
+        'namespace' => 'doctrine',
     ],
 ],
 ```
@@ -86,6 +88,7 @@ If you want to store the cache into files on your local disk you will need to us
 You can store `result_cache`, `metadata_cache`, `query_cache`, `hydration_cache` into files using the `filesystem`
 adapter or you can store the `result_cache` into memory using the `array` adapter.
 
+## EXAMPLE OF CONFIGURATION WHICH USE BOTH in_memory AND filesystem
 Configuration sample for ``config\autoload\doctrine.global.php`` file:
 
 ```php
