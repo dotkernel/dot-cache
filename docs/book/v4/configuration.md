@@ -8,7 +8,6 @@ In ```config\autoload\doctrine.global.php``` you need to add the following confi
 
 Under the ```doctrine.configuration.orm_default``` key add the following config:
 
-```php
     'result_cache'       => 'array',
     'metadata_cache'     => 'array',
     'query_cache'        => 'array',
@@ -20,17 +19,14 @@ Under the ```doctrine.configuration.orm_default``` key add the following config:
         'file_lock_region_directory' => '',
         'regions'                    => [],
     ],
-```
 
 Next, under the ```doctrine``` key add the following config:
 
-```php
     'cache' => [
         'array' => [
             'class'     => \Dot\Cache\Adapter\ArrayAdapter::class,
         ],
     ],
-```
 
 ## NOTE
 
@@ -42,7 +38,6 @@ Next, under the ```doctrine``` key add the following config:
 
 You can use both adapters at the same time, your configuration can look like this:
 
-```php
     'result_cache'       => 'filesystem',
     'metadata_cache'     => 'array',
     'query_cache'        => 'filesystem',
@@ -54,4 +49,4 @@ You can use both adapters at the same time, your configuration can look like thi
         'file_lock_region_directory' => '',
         'regions'                    => [],
     ],
-```
+
