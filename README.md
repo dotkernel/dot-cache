@@ -78,7 +78,7 @@ If you want to store the cache into files on your local disk you will need to us
         'class'     => \Dot\Cache\Adapter\ArrayAdapter::class,
     ],
     'filesystem' => [
-        'class'     => \Frontend\App\Common\FilesystemAdapter::class,
+        'class'     => \Dot\Cache\Adapter\FilesystemAdapter::class,
         'directory' => getcwd() . '/data/cache',
         'namespace' => 'doctrine',
     ],
@@ -121,7 +121,7 @@ return [
                 'class'     => \Symfony\Component\Cache\Adapter\ArrayAdapter::class,
             ],
             'filesystem' => [
-                'class'     => \Frontend\App\Common\FilesystemAdapter::class,
+                'class'     => \Dot\Cache\Adapter\FilesystemAdapter::class,
                 'directory' => getcwd() . '/data/cache',
                 'namespace' => 'doctrine',
             ],
