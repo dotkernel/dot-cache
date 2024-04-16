@@ -4,7 +4,6 @@ After installation, register `dot-cache` package in your project by adding the b
 
      Dot\Cache\ConfigProvider::class,
 
-
 In ```config\autoload\doctrine.global.php``` you need to add the following configurations:
 
 Under the ```doctrine.configuration.orm_default``` key add the following config:
@@ -33,15 +32,15 @@ Next, under the ```doctrine``` key add the following config:
 ],
 ```
 
-### NOTE
+## NOTE
+
 > The above configuration is just a sample and will use the in-memory adapter, it should be adapted to the app's needs.
 
+#### To disable the cache make sure the ``enabled`` key is ``false``
 
-#### To disable the cache make sure the ``enabled`` key is ``false``.
+### Using both adapters at the same time
 
-### Using both adapters at the same time.
-
-You can use both adapters at the same time, your configuration can look like this: 
+You can use both adapters at the same time, your configuration can look like this:
 
 ```php
 'result_cache'       => 'filesystem',
