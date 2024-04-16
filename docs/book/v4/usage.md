@@ -5,11 +5,11 @@ Version `4.x` of `dot-cache` is the last version that uses [symfony/cache](https
 
 Using cache when querying the database:
 
-```
-$queryBuilder->select('users')
-             ->from(User::class, 'users');
-             
-$result = $queryBuilder->setCacheable(true)
-                       ->getQuery()
-                       ->getResult();
+```php
+    $queryBuilder->select('users')
+                 ->from(User::class, 'users');
+                 
+    $result = $queryBuilder->setCacheable(true)
+                           ->getQuery()
+                           ->getResult();
 ```
