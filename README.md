@@ -15,9 +15,9 @@ DotKernel cache component based on symfony-cache.
 
 [![SymfonyInsight](https://insight.symfony.com/projects/787c7526-eb9d-4fa2-a8d4-bfdcc008d239/big.svg)](https://insight.symfony.com/projects/787c7526-eb9d-4fa2-a8d4-bfdcc008d239)
 
-### Note
-> This package supports only `array` and `filesystem` adapters and you can use multiple adapters at once.
+## Note
 
+> This package supports only `array` and `filesystem` adapters, you can use multiple adapters at once.
 
 ## Installation
 
@@ -25,9 +25,7 @@ Run the following command in your project directory
 
     composer require dotkernel/dot-cache
 
-
 After installing, add the `Dot\Cache\ConfigProvider::class` class to your configuration aggregate.
-
 
 ## Configuration for Doctrine in_array
 
@@ -35,34 +33,28 @@ In ```config\autoload\doctrine.global.php``` you need to add the following confi
 
 Under the ```doctrine.configuration.orm_default``` key add the following config:
 
-```php
-'result_cache'       => 'array',
-'metadata_cache'     => 'array',
-'query_cache'        => 'array',
-'hydration_cache'    => 'array',
-'second_level_cache' => [
-    'enabled'                    => true,
-    'default_lifetime'           => 3600,
-    'default_lock_lifetime'      => 60,
-    'file_lock_region_directory' => '',
-    'regions'                    => [],
-],
-```
+    'result_cache'       => 'array',
+    'metadata_cache'     => 'array',
+    'query_cache'        => 'array',
+    'hydration_cache'    => 'array',
+    'second_level_cache' => [
+        'enabled'                    => true,
+        'default_lifetime'           => 3600,
+        'default_lock_lifetime'      => 60,
+        'file_lock_region_directory' => '',
+        'regions'                    => [],
+    ],
 
 Next, under the ```doctrine``` key add the following config:
 
-```php
-'cache' => [
-    'array' => [
-        'class'     => \Dot\Cache\Adapter\ArrayAdapter::class,
+    'cache' => [
+        'array' => [
+            'class'     => \Dot\Cache\Adapter\ArrayAdapter::class,
+        ],
     ],
-],
-```
 
 ### Note
 > The above configuration will use an in-memory cache, because you use the `array` adapter.
-
-
 
 If you want to store the cache into files on your local disk you will need to use the `filesystem` adapter.
 
@@ -72,68 +64,63 @@ If you want to store the cache into files on your local disk you will need to us
 * directory (folder path)
 * namespace (directory name)
 
-```php
-'cache' => [
-    'array' => [
-        'class'     => \Dot\Cache\Adapter\ArrayAdapter::class,
+    'cache' => [
+        'array' => [
+            'class'     => \Dot\Cache\Adapter\ArrayAdapter::class,
+        ],
+        'filesystem' => [
+            'class'     => \Dot\Cache\Adapter\FilesystemAdapter::class,
+            'directory' => getcwd() . '/data/cache',
+            'namespace' => 'doctrine',
+        ],
     ],
-    'filesystem' => [
-        'class'     => \Dot\Cache\Adapter\FilesystemAdapter::class,
-        'directory' => getcwd() . '/data/cache',
-        'namespace' => 'doctrine',
-    ],
-],
-```
 
 You can store `result_cache`, `metadata_cache`, `query_cache`, `hydration_cache` into files using the `filesystem`
 adapter or you can store the `result_cache` into memory using the `array` adapter.
 
-## EXAMPLE OF CONFIGURATION WHICH USE BOTH in_memory AND filesystem
+## Configuration example for both in-memory and filesystem adapters
+
 Configuration sample for ``config\autoload\doctrine.global.php`` file:
 
-```php
-return [
-    'dependencies'        => [
-        'factories' => [
-            \Dot\Cache\Adapter\FilesystemAdapter::class => \Dot\Cache\Factory\FilesystemAdapterFactory::class,
-        'aliases'   => [
-            \Symfony\Component\Cache\Adapter\FilesystemAdapter::class => \Dot\Cache\Adapter\FilesystemAdapter::class
+    return [
+        'dependencies'        => [
+            'factories' => [
+                \Dot\Cache\Adapter\FilesystemAdapter::class => \Dot\Cache\Factory\FilesystemAdapterFactory::class,
+            'aliases'   => [
+                \Symfony\Component\Cache\Adapter\FilesystemAdapter::class => \Dot\Cache\Adapter\FilesystemAdapter::class
+            ],
         ],
-    ],
-    'doctrine'            => [
-        'configuration' => [
-            'orm_default' => [
-                'result_cache'       => 'array',
-                'metadata_cache'     => 'array',
-                'query_cache'        => 'filesystem',
-                'hydration_cache'    => 'array',
-                'second_level_cache' => [
-                    'enabled'                    => true,
-                    'default_lifetime'           => 3600,
-                    'default_lock_lifetime'      => 60,
-                    'file_lock_region_directory' => '',
-                    'regions'                    => [],
+        'doctrine'            => [
+            'configuration' => [
+                'orm_default' => [
+                    'result_cache'       => 'array',
+                    'metadata_cache'     => 'array',
+                    'query_cache'        => 'filesystem',
+                    'hydration_cache'    => 'array',
+                    'second_level_cache' => [
+                        'enabled'                    => true,
+                        'default_lifetime'           => 3600,
+                        'default_lock_lifetime'      => 60,
+                        'file_lock_region_directory' => '',
+                        'regions'                    => [],
+                    ],
+                ],
+            ],
+            'cache'      => [
+                'array' => [
+                    'class'     => \Symfony\Component\Cache\Adapter\ArrayAdapter::class,
+                ],
+                'filesystem' => [
+                    'class'     => \Dot\Cache\Adapter\FilesystemAdapter::class,
+                    'directory' => getcwd() . '/data/cache',
+                    'namespace' => 'doctrine',
                 ],
             ],
         ],
-        'cache'      => [
-            'array' => [
-                'class'     => \Symfony\Component\Cache\Adapter\ArrayAdapter::class,
-            ],
-            'filesystem' => [
-                'class'     => \Dot\Cache\Adapter\FilesystemAdapter::class,
-                'directory' => getcwd() . '/data/cache',
-                'namespace' => 'doctrine',
-            ],
-        ],
-    ],
-];
-```
+    ];
 
 ### NOTE
+
 > The above configuration is just a sample, it should not be used as it is.
 
 You can enable/disable the caching system using the `doctrine.configuration.orm_default.second_level_cache.enabled` key.
-
-
-

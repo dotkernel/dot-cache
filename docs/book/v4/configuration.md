@@ -49,4 +49,3 @@ You can use both adapters at the same time, your configuration can look like thi
         'file_lock_region_directory' => '',
         'regions'                    => [],
     ],
-
