@@ -54,13 +54,15 @@ Next, under the ```doctrine``` key add the following config:
     ],
 
 ### Note
+
 > The above configuration will use an in-memory cache, because you use the `array` adapter.
 
 If you want to store the cache into files on your local disk you will need to use the `filesystem` adapter.
 
-## CONFIGURATION FOR Doctrine cache using filesystem
+## Configuration for Doctrine cache using filesystem
 
 **The `filesystem` adapter needs some extra configurations :**
+
 * directory (folder path)
 * namespace (directory name)
 
