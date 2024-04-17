@@ -10,7 +10,7 @@ DotKernel cache component based on symfony-cache.
 [![GitHub stars](https://img.shields.io/github/stars/dotkernel/dot-cache)](https://github.com/dotkernel/dot-cache/stargazers)
 [![GitHub license](https://img.shields.io/github/license/dotkernel/dot-cache)](https://github.com/dotkernel/dot-cache/blob/4.0.0/LICENSE.md)
 
-[![Build Static](https://github.com/dotkernel/dot-cache/actions/workflows/static-analysis.yml/badge.svg?branch=4.0)](https://github.com/dotkernel/dot-cache/actions/workflows/static-analysis.yml)
+[![Build Static](https://github.com/dotkernel/dot-cache/actions/workflows/continuous-integration.yml/badge.svg?branch=4.0)](https://github.com/dotkernel/dot-cache/actions/workflows/continuous-integration.yml)
 [![codecov](https://codecov.io/gh/dotkernel/dot-cache/graph/badge.svg?token=FAN1MXKKS9)](https://codecov.io/gh/dotkernel/dot-cache)
 
 [![SymfonyInsight](https://insight.symfony.com/projects/787c7526-eb9d-4fa2-a8d4-bfdcc008d239/big.svg)](https://insight.symfony.com/projects/787c7526-eb9d-4fa2-a8d4-bfdcc008d239)
@@ -29,9 +29,9 @@ After installing, add the `Dot\Cache\ConfigProvider::class` class to your config
 
 ## Configuration for Doctrine in_array
 
-In ```config\autoload\doctrine.global.php``` you need to add the following configurations:
+In `config\autoload\doctrine.global.php` you need to add the following configurations:
 
-Under the ```doctrine.configuration.orm_default``` key add the following config:
+Under the `doctrine.configuration.orm_default` key add the following config:
 
     'result_cache'       => 'array',
     'metadata_cache'     => 'array',
@@ -45,7 +45,7 @@ Under the ```doctrine.configuration.orm_default``` key add the following config:
         'regions'                    => [],
     ],
 
-Next, under the ```doctrine``` key add the following config:
+Next, under the `doctrine` key add the following config:
 
     'cache' => [
         'array' => [
@@ -82,7 +82,7 @@ adapter or you can store the `result_cache` into memory using the `array` adapte
 
 ## Configuration example for both in-memory and filesystem adapters
 
-Configuration sample for ``config\autoload\doctrine.global.php`` file:
+Configuration sample for `config\autoload\doctrine.global.php` file:
 
     return [
         'dependencies'        => [

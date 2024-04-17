@@ -4,7 +4,7 @@
 * directory (folder path)
 * namespace (directory name)
 
-In ```config\autoload\doctrine.global.php``` you need to add the following configurations, under the ``doctrine`` key:
+In `config\autoload\doctrine.global.php` you need to add the following configurations, under the ``doctrine`` key:
 
 ```php
 'cache' => [
@@ -16,7 +16,7 @@ In ```config\autoload\doctrine.global.php``` you need to add the following confi
 ],
 ```
 
-Under the ```doctrine.configuration.orm_default``` key add the following config:
+Under the `doctrine.configuration.orm_default` key add the following config:
 
 ```php
 'result_cache'       => 'filesystem',

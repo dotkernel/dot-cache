@@ -4,9 +4,9 @@ After installation, register `dot-cache` package in your project by adding the b
 
      Dot\Cache\ConfigProvider::class,
 
-In ```config\autoload\doctrine.global.php``` you need to add the following configurations:
+In `config\autoload\doctrine.global.php` you need to add the following configurations:
 
-Under the ```doctrine.configuration.orm_default``` key add the following config:
+Under the `doctrine.configuration.orm_default` key add the following config:
 
     'result_cache'       => 'array',
     'metadata_cache'     => 'array',
@@ -20,7 +20,7 @@ Under the ```doctrine.configuration.orm_default``` key add the following config:
         'regions'                    => [],
     ],
 
-Next, under the ```doctrine``` key add the following config:
+Next, under the `doctrine` key add the following config:
 
     'cache' => [
         'array' => [
@@ -32,7 +32,7 @@ Next, under the ```doctrine``` key add the following config:
 
 > The above configuration is just a sample and will use the in-memory adapter, it should be adapted to the app's needs.
 
-> To disable the cache make sure the ``enabled`` key is ``false``.
+> To disable the cache make sure the `enabled` key is `false`.
 
 ### Using both adapters at the same time
 
