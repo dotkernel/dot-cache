@@ -19,3 +19,4 @@ site_description: "DotKernel cache component based on symfony-cache."
 repo_url: "https://github.com/dotkernel/dot-cache"
 plugins:
   - search
+  -
