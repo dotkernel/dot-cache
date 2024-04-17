@@ -1,0 +1,21 @@
+docs_dir: docs/book
+site_dir: docs/html
+extra:
+  project: Packages
+  current_version: v4
+  versions:
+    - v4
+nav:
+  - Home: index.md
+  - v4:
+      - Overview: v4/overview.md
+      - Installation: v4/installation.md
+      - Configuration: v4/configuration.md
+           - "In-memory adapter": v5/adapters/in-memory.md
+           - "Filesystem adapter": v5/adapters/filesystem.md
+      - Usage: v4/usage.md
+site_name: dot-cache
+site_description: "DotKernel cache component based on symfony-cache."
+repo_url: "https://github.com/dotkernel/dot-cache"
+plugins:
+  - search
