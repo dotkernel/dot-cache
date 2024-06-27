@@ -1,5 +1,10 @@
 # dot-cache
 
+> [!IMPORTANT]
+> dot-cache is a wrapper on top of [symfony/cache](https://github.com/symfony/cache)
+>
+> ![OSS Lifecycle](https://img.shields.io/osslifecycle/symfony/cache)
+
 DotKernel cache component based on symfony-cache.
 
 ![OSS Lifecycle](https://img.shields.io/osslifecycle/dotkernel/dot-cache)
