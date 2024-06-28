@@ -5,7 +5,7 @@
 >
 > ![OSS Lifecycle](https://img.shields.io/osslifecycle/symfony/cache)
 
-DotKernel cache component based on symfony-cache.
+## dot-cache badges
 
 ![OSS Lifecycle](https://img.shields.io/osslifecycle/dotkernel/dot-cache)
 ![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-cache/4.0.0)
