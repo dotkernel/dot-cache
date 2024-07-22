@@ -1,6 +1,11 @@
 # dot-cache
 
-DotKernel cache component based on symfony-cache.
+> [!IMPORTANT]
+> dot-cache is a wrapper on top of [symfony/cache](https://github.com/symfony/cache)
+>
+> ![OSS Lifecycle](https://img.shields.io/osslifecycle/symfony/cache)
+
+## dot-cache badges
 
 ![OSS Lifecycle](https://img.shields.io/osslifecycle/dotkernel/dot-cache)
 ![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-cache/4.0.0)
