@@ -1,10 +1,11 @@
 # Configuring the filesystem adapter
 
-**The `filesystem` adapter stores the cache on th hard disk and needs some extra configurations :**
-* directory (folder path)
-* namespace (directory name)
+**The `filesystem` adapter stores the cache on th hard disk and needs some extra configurations:**
 
-In `config\autoload\doctrine.global.php` you need to add the following configurations, under the ``doctrine`` key:
+- directory (folder path)
+- namespace (directory name)
+
+In `config\autoload\doctrine.global.php` you need to add the following configurations, under the `doctrine` key:
 
 ```php
 'cache' => [
