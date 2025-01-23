@@ -16,7 +16,7 @@ nav:
           - "In-memory adapter": v4/adapters/in-memory.md
           - "Filesystem adapter": v4/adapters/filesystem.md
 site_name: dot-cache
-site_description: "DotKernel cache component based on symfony-cache."
+site_description: "Dotkernel cache component based on symfony-cache."
 repo_url: "https://github.com/dotkernel/dot-cache"
 plugins:
   - search

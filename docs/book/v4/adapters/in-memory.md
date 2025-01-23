@@ -2,12 +2,12 @@
 
 **The `array` adapter stores the cache in-memory.**
 
-In `config\autoload\doctrine.global.php` you need to add the following configurations, under the ``doctrine`` key:
+In `config\autoload\doctrine.global.php` you need to add the following configurations, under the `doctrine` key:
 
 ```php
 'cache' => [
     'array' => [
-        'class'     => \Dot\Cache\Adapter\ArrayAdapter::class,
+        'class' => \Dot\Cache\Adapter\ArrayAdapter::class,
     ],
 ],
 ```

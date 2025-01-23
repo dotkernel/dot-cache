@@ -1,9 +1,9 @@
 {
     "name": "dotkernel/dot-cache",
-    "description": "DotKernel cache component extending symfony-cache",
+    "description": "Dotkernel cache component extending symfony-cache",
     "authors": [
         {
-            "name": "DotKernel Team",
+            "name": "Dotkernel Team",
             "email": "team@dotkernel.com"
         }
     ],
@@ -12,7 +12,6 @@
     "keywords": [
         "dotkernel",
         "laminas",
-        "mezzio",
         "cache",
         "services",
         "doctrine",
@@ -20,12 +19,12 @@
         "symfony-cache"
     ],
     "require": {
-        "php": "~8.2.0 || ~8.3.0",
+        "php": "~8.2.0 || ~8.3.0 || ~8.4.0",
         "symfony/cache": "^7.0"
     },
     "require-dev": {
+        "laminas/laminas-coding-standard": "^3.0",
         "phpunit/phpunit": "^10.5.5",
-        "laminas/laminas-coding-standard": "^2.5",
         "squizlabs/php_codesniffer": "^3.8.0",
         "vimeo/psalm": "^5.13"
     },
@@ -42,7 +41,8 @@
     "scripts": {
         "check": [
             "@cs-check",
-            "@test"
+            "@test",
+            "@static-analysis"
         ],
         "cs-check": "phpcs",
         "cs-fix": "phpcbf",
