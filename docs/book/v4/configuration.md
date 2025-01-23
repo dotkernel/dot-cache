@@ -38,7 +38,7 @@ Next, under the `doctrine` key add the following config:
 
 > To disable the cache make sure the `enabled` key is `false`.
 
-### Using both adapters at the same time
+## Using both adapters at the same time
 
 You can use both adapters at the same time, your configuration can look like this:
 
