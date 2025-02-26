@@ -3,7 +3,7 @@
 > [!IMPORTANT]
 > dot-cache is a wrapper on top of [symfony/cache](https://github.com/symfony/cache)
 
-# Documentation
+## Documentation
 
 Documentation is available at: https://docs.dotkernel.org/dot-cache/.
 
