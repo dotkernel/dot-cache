@@ -14,6 +14,6 @@ class ArrayAdapterTest extends TestCase
     {
         $adapter = new ArrayAdapter();
 
-        $this->assertInstanceOf(SymfonyArrayAdapter::class, $adapter);
+        $this->assertContainsOnlyInstancesOf(SymfonyArrayAdapter::class, [$adapter]);
     }
 }

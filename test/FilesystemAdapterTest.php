@@ -14,6 +14,6 @@ class FilesystemAdapterTest extends TestCase
     {
         $adapter = new FilesystemAdapter();
 
-        $this->assertInstanceOf(SymfonyFilesystemAdapter::class, $adapter);
+        $this->assertContainsOnlyInstancesOf(SymfonyFilesystemAdapter::class, [$adapter]);
     }
 }
