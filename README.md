@@ -1,6 +1,7 @@
 # dot-cache
 
-> [!IMPORTANT]
+Dotkernel cache component based on symfony-cache.
+
 > dot-cache is a wrapper on top of [symfony/cache](https://github.com/symfony/cache)
 
 ## Documentation
