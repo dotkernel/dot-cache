@@ -5,8 +5,8 @@
 
 | Version | Supported          | PHP Version                                                                                               |
 |---------|--------------------|-----------------------------------------------------------------------------------------------------------|
-| 4.x     | :white_check_mark: | ![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-cache/4.0.0) |
-| <= 3.x  | :x: |  |
+| 4.x     | :white_check_mark: | ![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-cache/4.4.0) |
+| <= 3.x  | :x:                |                                                                                                           |
 
 
 ## Reporting Potential Security Issues
