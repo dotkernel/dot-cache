@@ -11,7 +11,7 @@ Documentation is available at: https://docs.dotkernel.org/dot-cache/.
 ## Badges
 
 ![OSS Lifecycle](https://img.shields.io/osslifecycle/dotkernel/dot-cache)
-![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-cache/4.3.0)
+![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-cache/4.4.0)
 
 [![GitHub issues](https://img.shields.io/github/issues/dotkernel/dot-cache)](https://github.com/dotkernel/dot-cache/issues)
 [![GitHub forks](https://img.shields.io/github/forks/dotkernel/dot-cache)](https://github.com/dotkernel/dot-cache/network)
@@ -66,7 +66,7 @@ Next, under the `doctrine` key add the following config:
 
 > The above configuration will use an in-memory cache, because you use the `array` adapter.
 
-If you want to store the cache into files on your local disk you will need to use the `filesystem` adapter.
+If you want to store the cache into files on your local disk, you will need to use the `filesystem` adapter.
 
 ## Configuration for Doctrine cache using filesystem
 
