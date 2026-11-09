@@ -4,6 +4,9 @@ Dotkernel cache component based on symfony-cache.
 
 > dot-cache is a wrapper on top of [symfony/cache](https://github.com/symfony/cache)
 
+> `dot-cache` uses [symfony/cache](https://github.com/symfony/cache) since version `4.0`.
+> Version `3.x` of `dot-cache` is the last version that uses [laminas/laminas-cache](https://github.com/laminas/laminas-cache).
+
 Using the in-memory and/or filesystem cache adapters greatly improves overall application response times.
 
 ## Badges
