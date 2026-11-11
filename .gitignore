@@ -35,3 +35,4 @@ composer.phar
 composer.lock
 .phpcs-cache
 .phpunit.result.cache
+.phpunit.cache

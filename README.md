@@ -4,23 +4,36 @@ Dotkernel cache component based on symfony-cache.
 
 > dot-cache is a wrapper on top of [symfony/cache](https://github.com/symfony/cache)
 
+> `dot-cache` uses [symfony/cache](https://github.com/symfony/cache) since version `4.0`.
+> Version `3.x` of `dot-cache` is the last version that uses [laminas/laminas-cache](https://github.com/laminas/laminas-cache).
+
 ## Documentation
 
 Documentation is available at: https://docs.dotkernel.org/dot-cache/.
 
+## Versions
+
+| Version | Supported | PHP | Cache backend |
+| --- | --- | --- | --- |
+| 5.x | :white_check_mark: | 8.3 to 8.6 | `symfony/cache` 7.4 or 8.1+ |
+| 4.x | Security fixes only | 8.2 to 8.5 | `symfony/cache` 7.x |
+| <= 3.x | :x: | | `laminas/laminas-cache` |
+
+Upgrading from `4.x`? Read the [upgrade guide](https://docs.dotkernel.org/dot-cache/v5/upgrading/).
+
 ## Badges
 
 ![OSS Lifecycle](https://img.shields.io/osslifecycle/dotkernel/dot-cache)
-![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-cache/4.4.0)
+![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-cache/5.0.0)
 
 [![GitHub issues](https://img.shields.io/github/issues/dotkernel/dot-cache)](https://github.com/dotkernel/dot-cache/issues)
 [![GitHub forks](https://img.shields.io/github/forks/dotkernel/dot-cache)](https://github.com/dotkernel/dot-cache/network)
 [![GitHub stars](https://img.shields.io/github/stars/dotkernel/dot-cache)](https://github.com/dotkernel/dot-cache/stargazers)
-[![GitHub license](https://img.shields.io/github/license/dotkernel/dot-cache)](https://github.com/dotkernel/dot-cache/blob/4.0/LICENSE.md)
+[![GitHub license](https://img.shields.io/github/license/dotkernel/dot-cache)](https://github.com/dotkernel/dot-cache/blob/5.0/LICENSE.md)
 
-[![Build Static](https://github.com/dotkernel/dot-cache/actions/workflows/continuous-integration.yml/badge.svg?branch=4.0)](https://github.com/dotkernel/dot-cache/actions/workflows/continuous-integration.yml)
+[![Build Static](https://github.com/dotkernel/dot-cache/actions/workflows/continuous-integration.yml/badge.svg?branch=5.0)](https://github.com/dotkernel/dot-cache/actions/workflows/continuous-integration.yml)
 [![codecov](https://codecov.io/gh/dotkernel/dot-cache/graph/badge.svg?token=FAN1MXKKS9)](https://codecov.io/gh/dotkernel/dot-cache)
-[![PHPStan](https://github.com/dotkernel/dot-cache/actions/workflows/static-analysis.yml/badge.svg?branch=4.0)](https://github.com/dotkernel/dot-cache/actions/workflows/static-analysis.yml)
+[![PHPStan](https://github.com/dotkernel/dot-cache/actions/workflows/static-analysis.yml/badge.svg?branch=5.0)](https://github.com/dotkernel/dot-cache/actions/workflows/static-analysis.yml)
 
 > This package supports only `array` and `filesystem` adapters, you can use multiple adapters at once.
 
@@ -34,7 +47,7 @@ composer require dotkernel/dot-cache
 
 After installing, add the `Dot\Cache\ConfigProvider::class` class to your configuration aggregate.
 
-## Configuration for Doctrine in_array
+## Configuration for Doctrine in-memory cache
 
 In `config\autoload\doctrine.global.php` you need to add the following configurations:
 
@@ -72,13 +85,15 @@ If you want to store the cache into files on your local disk, you will need to u
 
 **The `filesystem` adapter needs some extra configurations:**
 
-* directory (folder path)
-* namespace (directory name)
+- `directory` (required): folder path
+- `namespace`: directory name
+- `default_lifetime`: item lifetime in seconds, `0` for no expiry
+- `marshaller`: service name or instance of a Symfony marshaller
 
 ```php
 'cache' => [
-    'array' => [
-        'class'     => \Dot\Cache\Adapter\ArrayAdapter::class,
+    'array'      => [
+        'class' => \Dot\Cache\Adapter\ArrayAdapter::class,
     ],
     'filesystem' => [
         'class'     => \Dot\Cache\Adapter\FilesystemAdapter::class,
@@ -92,18 +107,11 @@ You can store `result_cache`, `metadata_cache`, `query_cache`, `hydration_cache`
 
 ## Configuration example for both in-memory and filesystem adapters
 
-Configuration sample for `config\autoload\doctrine.global.php` file:
+Configuration sample for `config\autoload\doctrine.global.php` file. The `dependencies` are registered by `Dot\Cache\ConfigProvider`, so they are not repeated here.
 
 ```php
 return [
-    'dependencies'        => [
-        'factories' => [
-            \Dot\Cache\Adapter\FilesystemAdapter::class => \Dot\Cache\Factory\FilesystemAdapterFactory::class,
-        'aliases'   => [
-            \Symfony\Component\Cache\Adapter\FilesystemAdapter::class => \Dot\Cache\Adapter\FilesystemAdapter::class
-        ],
-    ],
-    'doctrine'            => [
+    'doctrine' => [
         'configuration' => [
             'orm_default' => [
                 'result_cache'       => 'array',
@@ -119,9 +127,9 @@ return [
                 ],
             ],
         ],
-        'cache'      => [
-            'array' => [
-                'class'     => \Symfony\Component\Cache\Adapter\ArrayAdapter::class,
+        'cache'         => [
+            'array'      => [
+                'class' => \Dot\Cache\Adapter\ArrayAdapter::class,
             ],
             'filesystem' => [
                 'class'     => \Dot\Cache\Adapter\FilesystemAdapter::class,
