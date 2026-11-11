@@ -15,6 +15,7 @@
         "cache",
         "services",
         "doctrine",
+        "doctrine-cache",
         "symfony-cache"
     ],
     "require": {
@@ -26,7 +27,7 @@
         "laminas/laminas-coding-standard": "^3.0",
         "phpstan/phpstan": "^2.1",
         "phpstan/phpstan-phpunit": "^2.0",
-        "phpunit/phpunit": "^12"
+        "phpunit/phpunit": "^12.5"
     },
     "autoload": {
         "psr-4": {

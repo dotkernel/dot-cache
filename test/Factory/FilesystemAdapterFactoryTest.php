@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace DotTest\Cache\Factory;
 
+use ArrayObject;
 use Dot\Cache\Adapter\FilesystemAdapter;
 use Dot\Cache\Exception\InvalidConfigException;
 use Dot\Cache\Factory\FilesystemAdapterFactory;
@@ -177,10 +178,37 @@ class FilesystemAdapterFactoryTest extends TestCase
         (new FilesystemAdapterFactory())(new ArrayContainer());
     }
 
+    public function testReadsConfigServiceThatIsArrayObject(): void
+    {
+        $config = new ArrayObject($this->appConfig(['directory' => $this->directory->path, 'default_lifetime' => 60]));
+
+        $adapter = (new FilesystemAdapterFactory())(new ArrayContainer(['config' => $config]));
+
+        $this->assertSame(60, $this->defaultLifetime($adapter));
+    }
+
+    public function testReadsNestedArrayObjectLevels(): void
+    {
+        $config = [
+            'doctrine' => new ArrayObject([
+                'cache' => new ArrayObject([
+                    'filesystem' => new ArrayObject([
+                        'directory'        => $this->directory->path,
+                        'default_lifetime' => 60,
+                    ]),
+                ]),
+            ]),
+        ];
+
+        $adapter = (new FilesystemAdapterFactory())(new ArrayContainer(['config' => $config]));
+
+        $this->assertSame(60, $this->defaultLifetime($adapter));
+    }
+
     public function testRejectsFilesystemEntryThatIsNotAnArray(): void
     {
         $this->expectException(InvalidConfigException::class);
-        $this->expectExceptionMessage('doctrine.cache.filesystem');
+        $this->expectExceptionMessage('Config key "doctrine.cache.filesystem" must be an array, string given.');
 
         (new FilesystemAdapterFactory())(
             new ArrayContainer(['config' => ['doctrine' => ['cache' => ['filesystem' => 'data/cache']]]])

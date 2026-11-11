@@ -10,12 +10,14 @@ use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Symfony\Component\Cache\Marshaller\MarshallerInterface;
+use Traversable;
 
 use function array_key_exists;
 use function filter_var;
 use function is_array;
 use function is_int;
 use function is_string;
+use function iterator_to_array;
 
 use const FILTER_VALIDATE_INT;
 
@@ -54,11 +56,13 @@ final class FilesystemAdapterFactory
     private function filesystemConfig(ContainerInterface $container): array
     {
         $config = $container->has('config') ? $container->get('config') : [];
-        foreach (['doctrine', 'cache', 'filesystem'] as $key) {
-            if (! is_array($config)) {
-                return [];
-            }
-            $config = $config[$key] ?? [];
+        if (! isset($config['doctrine']['cache']['filesystem'])) {
+            return [];
+        }
+
+        $config = $config['doctrine']['cache']['filesystem'];
+        if ($config instanceof Traversable) {
+            $config = iterator_to_array($config);
         }
 
         if (! is_array($config)) {
