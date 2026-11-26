@@ -8,8 +8,17 @@ use Dot\Cache\Adapter\FilesystemAdapter;
 use Dot\Cache\Factory\FilesystemAdapterFactory;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter as SymfonyFilesystemAdapter;
 
-class ConfigProvider
+/**
+ * @phpstan-type DependenciesConfig array{
+ *     factories: array<class-string, class-string>,
+ *     aliases: array<class-string, class-string>,
+ * }
+ */
+final class ConfigProvider
 {
+    /**
+     * @return array{dependencies: DependenciesConfig}
+     */
     public function __invoke(): array
     {
         return [
@@ -17,6 +26,9 @@ class ConfigProvider
         ];
     }
 
+    /**
+     * @return DependenciesConfig
+     */
     public function getDependenciesConfig(): array
     {
         return [

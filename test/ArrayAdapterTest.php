@@ -2,18 +2,21 @@
 
 declare(strict_types=1);
 
-namespace DotTest\DotCache;
+namespace DotTest\Cache;
 
 use Dot\Cache\Adapter\ArrayAdapter;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\Cache\Adapter\ArrayAdapter as SymfonyArrayAdapter;
 
 class ArrayAdapterTest extends TestCase
 {
-    public function testInstantiate()
+    public function testStoresAndReadsItem(): void
     {
         $adapter = new ArrayAdapter();
+        $adapter->save($adapter->getItem('key')->set('value'));
 
-        $this->assertContainsOnlyInstancesOf(SymfonyArrayAdapter::class, [$adapter]);
+        $item = $adapter->getItem('key');
+
+        $this->assertTrue($item->isHit());
+        $this->assertSame('value', $item->get());
     }
 }

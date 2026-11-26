@@ -2,36 +2,35 @@
 
 declare(strict_types=1);
 
-namespace DotTest\DotCache;
+namespace DotTest\Cache;
 
 use Dot\Cache\Adapter\FilesystemAdapter;
 use Dot\Cache\ConfigProvider;
+use Dot\Cache\Factory\FilesystemAdapterFactory;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter as SymfonyFilesystemAdapter;
 
 class ConfigProviderTest extends TestCase
 {
-    protected array $config;
-
-    protected function setup(): void
+    public function testInvokeReturnsDependencies(): void
     {
-        $this->config = (new ConfigProvider())();
+        $provider = new ConfigProvider();
+
+        $this->assertSame(['dependencies' => $provider->getDependenciesConfig()], $provider());
     }
 
-    public function testHasDependencies(): void
+    public function testDependenciesConfig(): void
     {
-        $this->assertArrayHasKey('dependencies', $this->config);
-    }
-
-    public function testDependenciesHasFactories(): void
-    {
-        $this->assertArrayHasKey('factories', $this->config['dependencies']);
-        $this->assertArrayHasKey(FilesystemAdapter::class, $this->config['dependencies']['factories']);
-    }
-
-    public function testDependenciesHasAliases(): void
-    {
-        $this->assertArrayHasKey('aliases', $this->config['dependencies']);
-        $this->assertArrayHasKey(SymfonyFilesystemAdapter::class, $this->config['dependencies']['aliases']);
+        $this->assertSame(
+            [
+                'factories' => [
+                    FilesystemAdapter::class => FilesystemAdapterFactory::class,
+                ],
+                'aliases'   => [
+                    SymfonyFilesystemAdapter::class => FilesystemAdapter::class,
+                ],
+            ],
+            (new ConfigProvider())->getDependenciesConfig()
+        );
     }
 }

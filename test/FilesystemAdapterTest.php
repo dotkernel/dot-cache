@@ -2,18 +2,35 @@
 
 declare(strict_types=1);
 
-namespace DotTest\DotCache;
+namespace DotTest\Cache;
 
 use Dot\Cache\Adapter\FilesystemAdapter;
+use DotTest\Cache\Fixture\TemporaryDirectory;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\Cache\Adapter\FilesystemAdapter as SymfonyFilesystemAdapter;
 
 class FilesystemAdapterTest extends TestCase
 {
-    public function testInstantiate()
-    {
-        $adapter = new FilesystemAdapter();
+    private TemporaryDirectory $directory;
 
-        $this->assertContainsOnlyInstancesOf(SymfonyFilesystemAdapter::class, [$adapter]);
+    protected function setUp(): void
+    {
+        $this->directory = new TemporaryDirectory();
+    }
+
+    protected function tearDown(): void
+    {
+        $this->directory->remove();
+    }
+
+    public function testStoresItemOnDisk(): void
+    {
+        $adapter = new FilesystemAdapter('test', 0, $this->directory->path);
+        $adapter->save($adapter->getItem('key')->set('value'));
+
+        $reader = new FilesystemAdapter('test', 0, $this->directory->path);
+        $item   = $reader->getItem('key');
+
+        $this->assertTrue($item->isHit());
+        $this->assertSame('value', $item->get());
     }
 }
