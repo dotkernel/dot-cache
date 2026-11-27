@@ -18,9 +18,9 @@ Documentation is available at: https://docs.dotkernel.org/dot-cache/.
 [![GitHub stars](https://img.shields.io/github/stars/dotkernel/dot-cache)](https://github.com/dotkernel/dot-cache/stargazers)
 [![GitHub license](https://img.shields.io/github/license/dotkernel/dot-cache)](https://github.com/dotkernel/dot-cache/blob/4.0/LICENSE.md)
 
-[![Build Static](https://github.com/dotkernel/dot-cache/actions/workflows/continuous-integration.yml/badge.svg?branch=4.0)](https://github.com/dotkernel/dot-cache/actions/workflows/continuous-integration.yml)
+[![Build Static](https://github.com/dotkernel/dot-cache/actions/workflows/continuous-integration.yml/badge.svg?branch=4.x)](https://github.com/dotkernel/dot-cache/actions/workflows/continuous-integration.yml)
 [![codecov](https://codecov.io/gh/dotkernel/dot-cache/graph/badge.svg?token=FAN1MXKKS9)](https://codecov.io/gh/dotkernel/dot-cache)
-[![PHPStan](https://github.com/dotkernel/dot-cache/actions/workflows/static-analysis.yml/badge.svg?branch=4.0)](https://github.com/dotkernel/dot-cache/actions/workflows/static-analysis.yml)
+[![PHPStan](https://github.com/dotkernel/dot-cache/actions/workflows/static-analysis.yml/badge.svg?branch=4.x)](https://github.com/dotkernel/dot-cache/actions/workflows/static-analysis.yml)
 
 > This package supports only `array` and `filesystem` adapters, you can use multiple adapters at once.
 
